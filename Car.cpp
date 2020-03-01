@@ -46,10 +46,10 @@ bool Car::operator==(const Car &rhs) {
 
 std::ostream &operator<<(std::ostream &os, const Car &rhs) {
     std::string SPACE = " ";
-    os << rhs.make;
+    os << rhs.year;
     os << SPACE;
     os << rhs.color;
     os << SPACE;
-    os << rhs.year;
+    os << rhs.make;
     return os;
 }

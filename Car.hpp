@@ -2,6 +2,7 @@
 #define LAB8_CAR_HPP
 
 #include <string>
+#include <iostream>
 
 class Car {
     // fields
