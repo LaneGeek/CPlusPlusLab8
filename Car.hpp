@@ -1,5 +1,5 @@
-#ifndef LAB8_CAR_HPP
-#define LAB8_CAR_HPP
+#ifndef CAR_HPP
+#define CAR_HPP
 
 #include <string>
 #include <iostream>

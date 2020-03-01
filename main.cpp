@@ -10,8 +10,8 @@
 
 using namespace std;
 
-#define TEST_CAR
-//#define TEST_CARLIST
+//#define TEST_CAR
+#define TEST_CARLIST
 
 #ifdef TEST_CAR
 #include "Car.hpp"
@@ -61,9 +61,9 @@ int main()
     cout << car2 << endl << endl;
 
         // testing overloaded equality
-    //cout << "Testing equality" << endl;
-    //cout << car1 << ((car1 == truck1)?" is same as ":" is not same as ") << truck1 << endl;
-    //cout << truck1 << ((truck1 == truck2)?" is same as ":" is not same as ") << truck2 << endl << endl;
+    cout << "Testing equality" << endl;
+    cout << car1 << ((car1 == truck1)?" is same as ":" is not same as ") << truck1 << endl;
+    cout << truck1 << ((truck1 == truck2)?" is same as ":" is not same as ") << truck2 << endl << endl;
 
     cout << "Done with testing Car class" << endl << endl;
 #endif // TEST_CAR
