@@ -24,7 +24,7 @@ public:
     // methods
     void addCar(std::string make, std::string color, int year);
     bool findCar(std::string make, std::string color, int year);
-    Car removeHead();
+    Car* removeHead();
     std::string displayList();
 };
 

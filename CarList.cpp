@@ -57,19 +57,15 @@ bool CarList::findCar(std::string make, std::string color, int year)
 }
 
 // remove the item at head and return its value
-Car CarList::removeHead()
+Car* CarList::removeHead()
 {
     // deal with empty list
     if (head == nullptr)
-        return Car();
+        return nullptr;
 
     // non-empty, so get first item and process
     Link *tempLink = head;
     Car car = head->car;
-    //Car car;
-    //car.setYear(head->car.getYear());
-    //car.setColor(head->car.getColor());
-    //car.setMake(head->car.getMake());
 
     // update head
     head = head->next;
@@ -78,7 +74,7 @@ Car CarList::removeHead()
     delete tempLink;
 
     // return the car
-    return car;
+    return &car;
 }
 
 // build a string  by walking down the list
