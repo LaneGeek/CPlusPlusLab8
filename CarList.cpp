@@ -65,7 +65,8 @@ Car* CarList::removeHead()
 
     // non-empty, so get first item and process
     Link *tempLink = head;
-    Car car = head->car;
+    Car *car = new Car();
+    *car = head->car;
 
     // update head
     head = head->next;
@@ -74,7 +75,7 @@ Car* CarList::removeHead()
     delete tempLink;
 
     // return the car
-    return &car;
+    return car;
 }
 
 // build a string  by walking down the list
