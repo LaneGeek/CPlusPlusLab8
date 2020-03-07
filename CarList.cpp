@@ -63,18 +63,16 @@ Car* CarList::removeHead()
     if (head == nullptr)
         return nullptr;
 
-    // non-empty, so get first item and process
-    Link *tempLink = head;
+    // create a new empty car pointer
     Car *car = new Car();
+
+    // point the pointer to the car object in head
     *car = head->car;
 
     // update head
     head = head->next;
 
-    // delete old link
-    delete tempLink;
-
-    // return the car
+    // return the car pointer
     return car;
 }
 
