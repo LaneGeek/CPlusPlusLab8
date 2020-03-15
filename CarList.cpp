@@ -19,20 +19,26 @@ void CarList::recDestruct(Link * ptr)
     if (ptr)
     {
         recDestruct(ptr->next);
+        // delete the car
+        delete ptr->car;
         delete ptr;
     }
 }
 
 // recursive method to search the list
 // uses overloaded equality operator in Car
-bool CarList::recFind(Link * ptr, Car car)
+bool CarList::recFind(Link * ptr, Car *car)
 {
-    if (ptr == nullptr)
+    if (ptr == nullptr) {
+        // delete car which was created to test for equality
+        delete car;
         return false;
-
-    if (ptr->car == car)
+    }
+    if (*ptr->car == *car) {
+        // delete car which was created to test for equality
+        delete car;
         return true;
-
+    }
     return recFind(ptr->next, car);
 }
 
@@ -41,7 +47,7 @@ bool CarList::recFind(Link * ptr, Car car)
 // adds link to head of list
 void CarList::addCar(std::string make, std::string color, int year)
 {
-    Car car(make, color, year);
+    Car *car = new Car(make, color, year);
     Link *tempLink = new Link;
     tempLink->car = car;
     tempLink->next = head;
@@ -52,7 +58,8 @@ void CarList::addCar(std::string make, std::string color, int year)
 // create an instance of it, use recursive method to see if there
 bool CarList::findCar(std::string make, std::string color, int year)
 {
-    Car car(make, color, year);
+    // this car will be deleted in recFind
+    Car *car = new Car(make, color, year);
     return recFind(head, car);
 }
 
@@ -63,11 +70,8 @@ Car* CarList::removeHead()
     if (head == nullptr)
         return nullptr;
 
-    // create a new empty car pointer
-    Car *car = new Car();
-
-    // point the pointer to the car object in head
-    *car = head->car;
+    // create a pointer to the car object in head
+    Car *car = head->car;
 
     // update head
     head = head->next;
@@ -88,7 +92,7 @@ std::string CarList::displayList()
     // until done with list
     while (ptr)
     {
-        buffer << ptr->car << ", ";
+        buffer << *ptr->car << ", ";
         ptr = ptr->next;
     }
 

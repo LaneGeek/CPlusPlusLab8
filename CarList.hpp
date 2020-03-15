@@ -6,7 +6,7 @@
 
 struct Link {
     Link *next;
-    Car car;
+    Car *car;
 };
 
 class CarList {
@@ -14,7 +14,7 @@ class CarList {
 
     // recursive methods
     void recDestruct(Link *ptr);
-    bool recFind(Link *ptr, Car car);
+    bool recFind(Link *ptr, Car *car);
 
 public:
     // constructor and destructor
